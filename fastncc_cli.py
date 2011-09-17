@@ -5,6 +5,8 @@ import numpy
 from naivencc_mod import *
 #from fastncc_mod2 import *
 from fastncc_mod import *
+import fastncc_python
+import fastncc_mod
 
 from scipy import *
 
@@ -31,7 +33,21 @@ e = time.time()
 tr1 = e-s
 print tr1
 
-print 'fast'
+print 'fast ncc cython'
+s = time.time()
+r2 = fastncc_mod.fastncc(l,fb[0])
+e = time.time()
+tr2 = e-s
+print tr2
+
+print 'fast ncc python'
+s = time.time()
+r2 = fastncc_python.fastncc(l,fb[0])
+e = time.time()
+tr2 = e-s
+print tr2
+
+print 'fast fncc cython'
 s = time.time()
 r2 = fastfncc(l,fb)
 e = time.time()
