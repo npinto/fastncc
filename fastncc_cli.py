@@ -24,12 +24,14 @@ l = l[::8,::8]
 #l = randn(480,620)
 l = l.astype(double)
 
+print 'naive'
 s = time.time()
 r1 = naivefncc(l,fb)
 e = time.time()
 tr1 = e-s
 print tr1
 
+print 'fast'
 s = time.time()
 r2 = fastfncc(l,fb)
 e = time.time()
@@ -37,6 +39,7 @@ tr2 = e-s
 print tr2
 
 # - precomputed
+print 'precomputed'
 fullh = l.shape[0]+fb[0].shape[0]-1
 fullw = l.shape[1]+fb[0].shape[1]-1
 Ffb = numpy.ndarray((nf,fullh,fullw), dtype='complex128')
